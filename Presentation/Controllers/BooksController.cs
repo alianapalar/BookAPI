@@ -85,7 +85,7 @@ namespace Presentation.Controllers
             return StatusCode(201, book);
 
         }
-        [Authorize(Roles = "Editor,Admin")]
+        [Authorize]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         

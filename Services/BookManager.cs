@@ -6,13 +6,7 @@ using Entities.Models;
 using Entities.RequestFeatures;
 using Repositories.Contracts;
 using Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Reflection.Metadata.BlobBuilder;
+
 
 namespace Services
 {
@@ -72,12 +66,13 @@ namespace Services
         public async Task UpdateOneBookAsync(int id, BookDtoForUpdate bookDto, bool trackChanges)
         {
             var entity=await GetOneBookByIdAndCheckExists(id,trackChanges);
-
+            var category=await _manager.Category.GetOneCategoryByIdAsync(bookDto.CategoryId,trackChanges);
 
             //entity.Title = book.Title;
             //entity.Price= book.Price;
             entity = _mapper.Map<Book>(bookDto);
             _manager.Book.Update(entity);
+            _manager.Category.Update(category);
             await _manager.SaveAsync();
 
         }

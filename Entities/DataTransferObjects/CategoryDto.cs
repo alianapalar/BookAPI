@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities.DataTransferObjects
 {
-    public record BookDtoForUpdate : BookDtoForManipulation 
+    public record CategoryDto
     {
-        [Required]
-        public int Id { get; init; }
-        
         public int CategoryId { get; init; }
+        public string? CategoryName { get; init; }
     }
-    
 }

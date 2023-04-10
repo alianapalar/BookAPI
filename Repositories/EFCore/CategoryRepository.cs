@@ -15,7 +15,7 @@ namespace Repositories.EFCore
         {
         }
 
-        public void CreateOneCategoryAsync(Category category) => Create(category);
+        public void CreateOneCategory(Category category) => Create(category);
         
 
         public void DeleteOneCategory(Category category)=>Delete(category);

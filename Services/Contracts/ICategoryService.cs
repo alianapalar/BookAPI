@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace Services.Contracts
     {
         Task<IEnumerable<Category>> GetAllCategoriesAsync(bool trackChanges);
         Task<Category> GetOneCategoryByIdAsync(int id,bool trackChanges);
+        Task<CategoryDto> CreateOneCategoryAsync(CategoryDtoForInsertion categoryDto);
+        Task UpdateOneCategoryAsync(CategoryDtoForUpdate category,int id,bool trackChanges);
+        Task DeleteOneCategoryAsync(int id, bool trackChanges);
     }
 }
